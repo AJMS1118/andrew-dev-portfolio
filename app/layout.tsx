@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sometype_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { MainNav } from "@/components/MainNav";
 
 const sometypeMono = Sometype_Mono({
   variable: "--font-primary",
@@ -27,7 +28,15 @@ export default function RootLayout({
       <body
         className={`${sometypeMono.variable} ${playfair.variable} antialiased`}
       >
-        {children}
+        <div className="flex">
+          <div className="hidden xl:flex w-[285px] h-screen bg-secondary">
+            <MainNav />
+          </div>
+          <div className="w-full max-w-[1130px] px-[15px] mx-auto bg-pink-50/10">
+            <header>header</header>
+            <div>{children}</div>
+          </div>
+        </div>
       </body>
     </html>
   );
